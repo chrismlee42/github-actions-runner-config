@@ -3,14 +3,18 @@ kind: Kustomization
 metadata:
   name: github-actions-runner-config
 
-commonLabels:
-  app: github-actions-runner
-  managedBy: argocd
-  managementCodeGroup: chrismlee42
-  managementCodeProject: github-actions-runner-config
+labels:
+  - pairs:
+      app: github-actions-runner
+      managedBy: argocd
+      managementCodeGroup: chrismlee42
+      managementCodeProject: github-actions-runner-config
 
 namespace: github-actions-runner
 
 resources:
+  # https://github.com/actions/actions-runner-controller/releases
+  - https://github.com/actions/actions-runner-controller/releases/download/gha-runner-scale-set-0.13.0/actions-runner-controller.yaml
+  - argocd-applications-ephemeralrunnerset.yaml
   - github-config-secret.yaml
-  - namespace.yaml
+  # - namespace.yaml

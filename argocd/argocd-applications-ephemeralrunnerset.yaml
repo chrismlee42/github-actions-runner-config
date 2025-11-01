@@ -1,0 +1,18 @@
+apiVersion: actions.github.com/v1alpha1
+kind: EphemeralRunnerSet
+metadata:
+  name: chris-pc-argocd-applications
+spec:
+  githubConfigSecret: github-config
+  githubConfigUrl: https://github.com/chrismlee42/argocd-applications
+  template:
+    spec:
+      containers:
+        - command:
+            - /home/runner/run.sh
+          image: ghcr.io/actions/actions-runner:latest
+          name: runner
+      env:
+        - name: RUNNER_SCALE_SET_NAME
+          value: chris-pc-argocd-applications
+      # serviceAccountName: chris-pc-argocd-applications-gha-rs-no-permission
