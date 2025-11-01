@@ -1,10 +1,11 @@
 apiVersion: actions.github.com/v1alpha1
-kind: EphemeralRunnerSet
+kind: AutoscalingRunnerSet
 metadata:
   name: chris-pc-argocd-applications
 spec:
   githubConfigSecret: github-config
   githubConfigUrl: https://github.com/chrismlee42/argocd-applications
+  minRunners: 0
   template:
     spec:
       containers:
@@ -12,7 +13,5 @@ spec:
             - /home/runner/run.sh
           image: ghcr.io/actions/actions-runner:latest
           name: runner
-      env:
-        - name: RUNNER_SCALE_SET_NAME
-          value: chris-pc-argocd-applications
+      restartPolicy: Never
       # serviceAccountName: chris-pc-argocd-applications-gha-rs-no-permission

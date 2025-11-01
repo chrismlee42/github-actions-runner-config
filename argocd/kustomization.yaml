@@ -13,6 +13,6 @@ labels:
 namespace: github-actions-runner
 
 resources:
-  - argocd-applications-ephemeralrunnerset.yaml
+  - argocd-applications-autoscalingrunnerset.yaml
   - github-config-secret.yaml
   - namespace.yaml
