@@ -2,6 +2,8 @@ apiVersion: actions.github.com/v1alpha1
 kind: AutoscalingRunnerSet
 metadata:
   name: chris-pc-argocd-applications
+  labels:
+    app.kubernetes.io/version: "0.13.0"
 spec:
   githubConfigSecret: github-config
   githubConfigUrl: https://github.com/chrismlee42/argocd-applications
