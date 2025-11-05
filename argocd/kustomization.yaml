@@ -12,6 +12,36 @@ labels:
 
 namespace: github-actions-runner
 
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/spec/containers/0/env/0/valueFrom/secretKeyRef/name
+        value: "github-config"
+    target:
+      kind: Deployment
+      name: controller-manager
+  - patch: |-
+      - op: replace
+        path: /spec/spec/containers/0/env/1/valueFrom/secretKeyRef/name
+        value: "github-config"
+    target:
+      kind: Deployment
+      name: controller-manager
+  - patch: |-
+      - op: replace
+        path: /spec/spec/containers/0/env/2/valueFrom/secretKeyRef/name
+        value: "github-config"
+    target:
+      kind: Deployment
+      name: controller-manager
+  - patch: |-
+      - op: replace
+        path: /spec/spec/volumes/1/secret/secretName
+        value: "github-config"
+    target:
+      kind: Deployment
+      name: controller-manager
+
 resources:
   # https://github.com/actions/actions-runner-controller/releases
   - https://github.com/actions/actions-runner-controller/releases/download/gha-runner-scale-set-0.13.0/actions-runner-controller.yaml
