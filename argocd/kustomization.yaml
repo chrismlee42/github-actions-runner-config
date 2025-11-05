@@ -15,28 +15,28 @@ namespace: github-actions-runner
 patches:
   - patch: |-
       - op: replace
-        path: /spec/spec/containers/0/env/0/valueFrom/secretKeyRef/name
+        path: /spec/template/spec/containers/0/env/0/valueFrom/secretKeyRef/name
         value: "github-config"
     target:
       kind: Deployment
       name: controller-manager
   - patch: |-
       - op: replace
-        path: /spec/spec/containers/0/env/1/valueFrom/secretKeyRef/name
+        path: /spec/template/spec/containers/0/env/1/valueFrom/secretKeyRef/name
         value: "github-config"
     target:
       kind: Deployment
       name: controller-manager
   - patch: |-
       - op: replace
-        path: /spec/spec/containers/0/env/2/valueFrom/secretKeyRef/name
+        path: /spec/template/spec/containers/0/env/2/valueFrom/secretKeyRef/name
         value: "github-config"
     target:
       kind: Deployment
       name: controller-manager
   - patch: |-
       - op: replace
-        path: /spec/spec/volumes/1/secret/secretName
+        path: /spec/template/spec/volumes/1/secret/secretName
         value: "github-config"
     target:
       kind: Deployment
