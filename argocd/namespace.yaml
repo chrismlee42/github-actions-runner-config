@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: github-actions-runner
+  name: github-actions-runner-controller
 spec:
   finalizers:
     - kubernetes
