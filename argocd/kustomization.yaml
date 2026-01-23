@@ -47,5 +47,5 @@ resources:
   # - https://github.com/actions/actions-runner-controller/releases/download/gha-runner-scale-set-0.13.0/actions-runner-controller.yaml
   # - argocd-applications-autoscalingrunnerset.yaml
   # - argocd-applications-ephemeralrunnerset.yaml
-  # - github-config-secret.yaml
+  - github-config-secret.yaml
   - namespace.yaml
