@@ -48,4 +48,4 @@ resources:
   # - argocd-applications-autoscalingrunnerset.yaml
   # - argocd-applications-ephemeralrunnerset.yaml
   - github-config-secret.yaml
-  - namespace.yaml
+  # - namespace.yaml
